@@ -19,11 +19,12 @@ class Solution
         {
             return false;
         }
-        map<char,int>mp;
+        unordered_map<char,int>mp;
         int i;
         for(i=0;i<s.size();i++)
         {
-            if(isalpha(s[i]))
+            int f=s[i];
+            if(f>=65 && f<=122 && f!=92 &&f!=93 &&f!=94 &&f!=95 &&f!=96)
             {
                     if(int(s[i])>=97)
                     {
@@ -47,6 +48,7 @@ class Solution
     }
 
 };
+
 
 //{ Driver Code Starts.
 
