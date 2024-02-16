@@ -114,14 +114,15 @@ struct Node
     }
 };
 */
-    // int mx=0;
-    // int msm=0;
-    // pair<int, int>pr(0,0);
+     
+    pair<int, int>pr(0,0);
 class Solution
 {
 public:
-     
-    void bombit(Node*root,int &mx,int &msm,pair<int ,int>&pr,int c=0,int sm=0)
+     int mx=0;
+    int msm=0;
+    
+    void bombit(Node*root,int c=0,int sm=0)
     {
         if(root==NULL)return;
          sm+=root->data;
@@ -131,31 +132,33 @@ public:
             {
                 mx=c;
                 msm=sm;
-                pr.first=mx;
-                pr.second=msm;
+                // pr.first=mx;
+                // pr.second=msm;
             }
             else if(c==mx)
             {
-                if(pr.second<sm)
+                if(msm<sm)
                 {
-                    pr.second=sm;
+                    msm=sm;
                 }
             }
             return;
         }
-        bombit(root->left,mx,msm,pr,c+1,sm);
-        bombit(root->right,mx,msm,pr,c+1,sm);
+        bombit(root->left,c+1,sm);
+        bombit(root->right,c+1,sm);
     }
     
     int sumOfLongRootToLeafPath(Node *root)
     {
         //code here
-        int mx=0;
-        int msm=0;
-        pair<int, int>pr(0,0);
-        bombit(root,mx,msm,pr);
+        pr.second=0;
+        pr.first=0;
+        mx=0;
+        msm=0;
+        bombit(root);
+         
         int t=pr.second;
-        return t;
+        return msm;
     }
 };
 
