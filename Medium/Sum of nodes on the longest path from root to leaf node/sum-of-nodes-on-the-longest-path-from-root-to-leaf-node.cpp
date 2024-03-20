@@ -114,8 +114,6 @@ struct Node
     }
 };
 */
-     
-    pair<int, int>pr(0,0);
 class Solution
 {
 public:
@@ -132,8 +130,6 @@ public:
             {
                 mx=c;
                 msm=sm;
-                // pr.first=mx;
-                // pr.second=msm;
             }
             else if(c==mx)
             {
@@ -150,17 +146,13 @@ public:
     
     int sumOfLongRootToLeafPath(Node *root)
     {
-        //code here
-        pr.second=0;
-        pr.first=0;
         mx=0;
         msm=0;
         bombit(root);
-         
-        int t=pr.second;
         return msm;
     }
 };
+
 
 //{ Driver Code Starts.
 
