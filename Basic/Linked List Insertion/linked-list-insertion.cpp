@@ -40,9 +40,15 @@ class Solution{
     Node *insertAtBegining(Node *head, int x) {
        // Your code her
        Node *nn=new Node(x);
-       nn->next=head;
-       //head=nn;
-       return nn;
+       if(head==NULL)
+       {
+           head=nn;
+       }else
+       {
+           nn->next=head;
+           head=nn;
+       }
+       return head;
     }
     
     
@@ -53,16 +59,19 @@ class Solution{
        if(head==NULL)
        {
            return nn;
-       }
+       }else
+       {
            Node *temp=head;
            while(temp->next!=NULL)
            {
                temp=temp->next;
            }
            temp->next=nn;
+       }
        return head;
     }
 };
+
 
 
 //{ Driver Code Starts.
