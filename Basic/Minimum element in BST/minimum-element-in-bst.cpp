@@ -1,4 +1,6 @@
 //{ Driver Code Starts
+// Initial Template for C++
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -76,27 +78,14 @@ Node* buildTree(string str) {
     return root;
 }
 
-int minValue(Node* root);
 
-int main() {
-
-    int t;
-    scanf("%d ", &t);
-    while (t--) {
-        string s;
-        getline(cin, s);
-        Node* root = buildTree(s);
-        cout << minValue(root) << endl;
-    }
-    return 1;
-}
 // } Driver Code Ends
-
+// User function Template for C++
 
 // Function to find the minimum element in the given BST.
 
-/*
-struct Node {
+
+/*struct Node {
     int data;
     struct Node* left;
     struct Node* right;
@@ -109,9 +98,11 @@ Node* newNode(int val) {
     temp->right = NULL;
 
     return temp;
-}
-*/
- void ino(Node *root,int &min)
+}*/
+
+class Solution {
+public:   
+     void ino(Node *root,int &min)
     {
         if(root!=NULL)
         {
@@ -126,6 +117,24 @@ int minValue(Node* root) {
     if(root==NULL) return -1;
     int min=root->data;
     ino(root,min);
-    return min;
-    
+    return min;}
+};
+
+
+//{ Driver Code Starts.
+
+
+int main() {
+
+    int t;
+    scanf("%d ", &t);
+    while (t--) {
+        string s;
+        getline(cin, s);
+        Node* root = buildTree(s);
+        Solution ob;
+        cout << ob.minValue(root) << endl;
+    }
+    return 1;
 }
+// } Driver Code Ends
