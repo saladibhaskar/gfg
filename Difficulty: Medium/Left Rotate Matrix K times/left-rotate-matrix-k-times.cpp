@@ -12,15 +12,14 @@ class Solution {
   public:
     vector<vector<int>> rotateMatrix(int k, vector<vector<int>> mat) {
         // code here
-        int n=k%mat[0].size();
-        //cout<<n<<" ";
+        k%=mat[0].size();
         for(int i=0;i<mat.size();i++)
         {
-             for(int j=0;j<n;j++)
-             {
-                 mat[i].push_back(mat[i][0]);
-                 mat[i].erase(mat[i].begin());
-             }
+            reverse(mat[i].begin(),mat[i].begin()+k);
+            reverse(mat[i].begin()+k,mat[i].end());
+            reverse(mat[i].begin(),mat[i].end());
+            
+              
         }
         return mat;
     }
